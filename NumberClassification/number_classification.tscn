@@ -10,24 +10,43 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1080.0
-margin_bottom = 650.0
+margin_right = 1024.0
+margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 1, 0.0588235, 0.0588235, 1 )
+color = Color( 0.789062, 0.789062, 0.789062, 1 )
+_sections_unfolded = [ "Grow Direction", "Margin" ]
 
-[node name="Control" type="Control" parent="." index="1"]
+[node name="ColorRect" type="ColorRect" parent="." index="1"]
+
+show_behind_parent = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 640.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 1 )
+_sections_unfolded = [ "Margin", "Visibility" ]
+
+[node name="DrawSurface" type="Control" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1080.0
-margin_bottom = 650.0
+margin_right = 640.0
+margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -35,5 +54,65 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
+_sections_unfolded = [ "Margin", "Mouse", "Size Flags", "Theme", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ClearButton" type="Button" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 740.0
+margin_top = 40.0
+margin_right = 920.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Clear"
+flat = false
+align = 1
+_sections_unfolded = [ "Margin" ]
+
+[node name="IdentifyButton" type="Button" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 740.0
+margin_top = 127.0
+margin_right = 920.0
+margin_bottom = 187.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Identify"
+flat = false
+align = 1
+_sections_unfolded = [ "Margin" ]
+
+[connection signal="pressed" from="ClearButton" to="DrawSurface" method="_on_ClearButton_pressed"]
+
+[connection signal="pressed" from="IdentifyButton" to="DrawSurface" method="_on_IdentifyButton_pressed"]
 
 
