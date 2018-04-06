@@ -4,9 +4,12 @@ var lines = []
 var current_line = -1
 var pressed = false
 var viewport
+var classifier
 
 func _ready():
 	viewport = get_viewport()
+	classifier = NumberClassification.new()
+	
 
 func _draw():
 	for i in range(current_line + 1):
@@ -17,14 +20,14 @@ func _process(delta):
 	update()
 
 func _gui_input(event):
-	if event is InputEventMouseButton:
+	if event is InputEventScreenTouch:
 		if event.is_pressed():
 			current_line += 1
 			lines.append([])
 			pressed = true
 		else:
 			pressed = false
-	elif event is InputEventMouseMotion:
+	elif event is InputEventScreenDrag:
 		if pressed:
 			if event.position.x < get_size().x && event.position.y < get_size().y:
 				lines[current_line].push_back(event.position)
@@ -36,4 +39,5 @@ func _on_ClearButton_pressed():
 
 
 func _on_IdentifyButton_pressed():
-	pass
+	var img = $DrawViewport.get_texture().get_data()
+	classifier.Classify(img)
