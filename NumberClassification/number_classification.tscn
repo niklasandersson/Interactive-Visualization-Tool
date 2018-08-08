@@ -4,7 +4,7 @@
 [ext_resource path="res://NumberClassification/draw_surface.tscn" type="PackedScene" id=2]
 [ext_resource path="res://NumberClassification/progress_arc.gd" type="Script" id=3]
 
-[node name="number_classification" type="Node" index="0"]
+[node name="number_classification" type="Node"]
 
 script = ExtResource( 1 )
 

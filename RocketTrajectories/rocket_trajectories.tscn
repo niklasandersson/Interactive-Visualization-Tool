@@ -1,0 +1,229 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://RocketTrajectories/rocket_trajectories.gd" type="Script" id=1]
+[ext_resource path="res://RocketTrajectories/projectile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://RocketTrajectories/ground_tiles.tres" type="TileSet" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 64.1229, 5.60733 )
+
+[node name="rocket_trajectories" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="projectile" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="target" type="Area2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 1355.77, 599.442 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="target" index="0"]
+
+scale = Vector2( 1, 0.08 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="target" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="tree" type="TileMap" parent="." index="2"]
+
+scale = Vector2( 5, 5 )
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 131080, 11, 0 )
+_sections_unfolded = [ "Cell", "Transform" ]
+
+[node name="bush" type="TileMap" parent="." index="3"]
+
+scale = Vector2( 2, 2 )
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 1900590, 10, 0, 1900592, 536870922, 0 )
+_sections_unfolded = [ "Cell", "Transform" ]
+
+[node name="ground" type="TileMap" parent="." index="4"]
+
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 1966080, 6, 0, 1966081, 7, 0, 1966082, 8, 0, 1966083, 6, 0, 1966084, 7, 0, 1966085, 8, 0, 1966086, 8, 0, 1966087, 7, 0, 1966088, 7, 0, 1966089, 8, 0, 1966090, 7, 0, 1966091, 8, 0, 1966092, 7, 0, 1966093, 8, 0, 1966094, 8, 0, 1966095, 8, 0, 1966096, 7, 0, 1966097, 7, 0, 1966098, 8, 0, 1966099, 7, 0, 1966100, 7, 0, 1966101, 8, 0, 1966102, 7, 0, 1966103, 8, 0, 1966104, 7, 0, 1966105, 7, 0, 1966106, 6, 0, 1966107, 8, 0, 1966108, 8, 0, 1966109, 7, 0, 1966110, 6, 0, 1966111, 7, 0, 1966112, 8, 0, 1966113, 7, 0, 1966114, 7, 0, 1966115, 8, 0, 1966116, 6, 0, 1966117, 8, 0, 1966118, 6, 0, 1966119, 8, 0, 1966120, 7, 0, 1966121, 6, 0, 1966122, 8, 0, 1966123, 7, 0, 1966124, 8, 0, 1966125, 6, 0, 1966126, 7, 0, 1966127, 8, 0, 1966128, 6, 0, 1966129, 7, 0, 1966130, 8, 0, 1966131, 6, 0, 1966132, 8, 0, 1966133, 8, 0, 1966134, 6, 0, 1966135, 8, 0, 1966136, 8, 0, 1966137, 6, 0, 1966138, 8, 0, 1966139, 8, 0, 2031616, 0, 0, 2031617, 1, 0, 2031618, 2, 0, 2031619, 0, 0, 2031620, 1, 0, 2031621, 2, 0, 2031622, 0, 0, 2031623, 1, 0, 2031624, 2, 0, 2031625, 0, 0, 2031626, 1, 0, 2031627, 2, 0, 2031628, 1, 0, 2031629, 2, 0, 2031630, 0, 0, 2031631, 1, 0, 2031632, 2, 0, 2031633, 0, 0, 2031634, 1, 0, 2031635, 2, 0, 2031636, 0, 0, 2031637, 1, 0, 2031638, 2, 0, 2031639, 0, 0, 2031640, 1, 0, 2031641, 2, 0, 2031642, 0, 0, 2031643, 1, 0, 2031644, 2, 0, 2031645, 0, 0, 2031646, 1, 0, 2031647, 2, 0, 2031648, 0, 0, 2031649, 1, 0, 2031650, 2, 0, 2031651, 0, 0, 2031652, 1, 0, 2031653, 2, 0, 2031654, 0, 0, 2031655, 1, 0, 2031656, 2, 0, 2031657, 0, 0, 2031658, 1, 0, 2031659, 2, 0, 2031660, 0, 0, 2031661, 1, 0, 2031662, 2, 0, 2031663, 0, 0, 2031664, 0, 0, 2031665, 1, 0, 2031666, 2, 0, 2031667, 0, 0, 2031668, 1, 0, 2031669, 2, 0, 2031670, 0, 0, 2031671, 1, 0, 2031672, 2, 0, 2031673, 0, 0, 2031674, 1, 0, 2031675, 2, 0, 2097152, 5, 0, 2097153, 3, 0, 2097154, 3, 0, 2097155, 5, 0, 2097156, 3, 0, 2097157, 3, 0, 2097158, 4, 0, 2097159, 4, 0, 2097160, 4, 0, 2097161, 4, 0, 2097162, 5, 0, 2097163, 3, 0, 2097164, 3, 0, 2097165, 3, 0, 2097166, 4, 0, 2097167, 4, 0, 2097168, 4, 0, 2097169, 4, 0, 2097170, 4, 0, 2097171, 5, 0, 2097172, 4, 0, 2097173, 3, 0, 2097174, 3, 0, 2097175, 3, 0, 2097176, 3, 0, 2097177, 3, 0, 2097178, 3, 0, 2097179, 5, 0, 2097180, 3, 0, 2097181, 5, 0, 2097182, 3, 0, 2097183, 3, 0, 2097184, 3, 0, 2097185, 3, 0, 2097186, 3, 0, 2097187, 3, 0, 2097188, 5, 0, 2097189, 5, 0, 2097190, 5, 0, 2097191, 5, 0, 2097192, 3, 0, 2097193, 4, 0, 2097194, 3, 0, 2097195, 5, 0, 2097196, 5, 0, 2097197, 5, 0, 2097198, 4, 0, 2097199, 4, 0, 2097200, 5, 0, 2097201, 3, 0, 2097202, 5, 0, 2097203, 3, 0, 2097204, 3, 0, 2097205, 3, 0, 2097206, 3, 0, 2097207, 5, 0, 2097208, 3, 0, 2097209, 5, 0, 2097210, 5, 0, 2097211, 4, 0, 2162688, 4, 0, 2162689, 5, 0, 2162690, 5, 0, 2162691, 4, 0, 2162692, 4, 0, 2162693, 5, 0, 2162694, 5, 0, 2162695, 3, 0, 2162696, 3, 0, 2162697, 4, 0, 2162698, 4, 0, 2162699, 5, 0, 2162700, 4, 0, 2162701, 4, 0, 2162702, 3, 0, 2162703, 5, 0, 2162704, 3, 0, 2162705, 3, 0, 2162706, 5, 0, 2162707, 4, 0, 2162708, 3, 0, 2162709, 3, 0, 2162710, 3, 0, 2162711, 3, 0, 2162712, 5, 0, 2162713, 5, 0, 2162714, 3, 0, 2162715, 3, 0, 2162716, 3, 0, 2162717, 3, 0, 2162718, 3, 0, 2162719, 3, 0, 2162720, 3, 0, 2162721, 3, 0, 2162722, 4, 0, 2162723, 4, 0, 2162724, 4, 0, 2162725, 4, 0, 2162726, 3, 0, 2162727, 4, 0, 2162728, 5, 0, 2162729, 5, 0, 2162730, 5, 0, 2162731, 3, 0, 2162732, 3, 0, 2162733, 3, 0, 2162734, 4, 0, 2162735, 4, 0, 2162736, 4, 0, 2162737, 3, 0, 2162738, 5, 0, 2162739, 3, 0, 2162740, 4, 0, 2162741, 4, 0, 2162742, 4, 0, 2162743, 3, 0, 2162744, 5, 0, 2162745, 3, 0, 2162746, 4, 0, 2162747, 4, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="launch_button" type="Button" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1471.0
+margin_right = 1918.0
+margin_bottom = 155.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Launch"
+flat = false
+align = 1
+
+[node name="reset_button" type="Button" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1473.0
+margin_top = 172.0
+margin_right = 1922.0
+margin_bottom = 310.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Reset"
+flat = false
+align = 1
+
+[node name="angle_slider" type="HSlider" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1162.71
+margin_top = -42.8326
+margin_right = 1391.71
+margin_bottom = 157.167
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 90.0
+step = 0.5
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+
+[node name="velocity_slider" type="HSlider" parent="." index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1162.0
+margin_top = 62.5927
+margin_right = 1391.0
+margin_bottom = 262.593
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 100.0
+step = 0.5
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+
+[connection signal="area_entered" from="projectile" to="projectile" method="_on_projectile_area_entered"]
+
+[connection signal="pressed" from="launch_button" to="." method="_on_launch_button_pressed"]
+
+[connection signal="pressed" from="reset_button" to="." method="_on_reset_button_pressed"]
+
+[connection signal="value_changed" from="angle_slider" to="projectile" method="_on_angle_slider_value_changed"]
+
+[connection signal="value_changed" from="velocity_slider" to="projectile" method="_on_velocity_slider_value_changed"]
+
+
